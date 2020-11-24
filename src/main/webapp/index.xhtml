@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Inicier Sesion</title>
+        <h:outputStylesheet library="css" name="index.css" />
+    </h:head>
+    <h:body id="principal">
+        <div id="cuadro">
+            <h:form>
+                <p:growl id="messages" autoUpdate="false" showDetail="true" showSummary="true" severity="warn,fatal" />
+
+                <h:panelGrid id="gridLoggin" columns="3" >
+                    <p:outputLabel for="txtUsuario" value="Usuario" />
+                    <p:inputText id="txtUsuario" value="#{indexController.usuario.usuario}" required="true" requiredMessage="Campo requerido!" />
+                    <p:message for="txtUsuario" />
+
+                    <p:outputLabel for="txtClave" value="Clave" />
+                    <p:inputText id="txtClave" value="#{indexController.usuario.clave}" required="true" requiredMessage="Campo requerido!" />
+                    <p:message for="txtClave" />
+
+                    <p:column />
+                    <p:commandButton value="Inciar Sesión" icon="ui-icon-check" action="#{indexController.iniciarSesion()}" update="gridLoggin,messages" />
+                    <p:column />
+                </h:panelGrid>
+                <p:separator/>
+                <p:link outcome="usuario" value="Crear Cuenta"/>
+                <br />
+                <p:link outcome="/protegido/operario/categoria" value="Categoría"/>
+                <br />
+                <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+            </h:form>
+        </div>        
+    </h:body>
+</html>
+
